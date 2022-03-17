@@ -93,7 +93,21 @@ head(df,5)
 
 ```{r funcion_long}
 # Escriba aquí la función long_df
+#Instalar antes el paquete
+#install.packages(reshape2)
+#La libreria reshape2 para cargar melt
+library(reshape2)
 
+#Funcion de solucion
+long_df <- function(df){
+  #Se cambia el formato con ayuda de melt
+  data_long <- melt(df, 
+                    id.vars=c("bcr_patient_barcode", "dataset"), 
+                    measure.vars=c("GATA3", "PTEN", "XBP1", "ESR1", "MUC1", "FN1", "GAPDH" ),
+                    variable.name="gen",
+                    value.name="expresion_level")
+  return(data_long)
+}
 
 ```
 
