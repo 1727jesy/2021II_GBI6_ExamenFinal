@@ -77,7 +77,8 @@ Para comprender la data de esta evaluación se requiere conocer el significado d
 
 ### [0.5 PUNTOS] 1.1 Defina su directorio de trabajo. 
 ```{r wd}
-
+#Se usa get para imprimir el directorio en el que sse trabaja y luego set para definirlo
+setwd(getwd())
 ```
 
 ### [0.5 PUNTOS] 1.2. Cargue la data "mRNA_expr.csv"
