@@ -79,12 +79,14 @@ Para comprender la data de esta evaluación se requiere conocer el significado d
 ```{r wd}
 #Se usa get para imprimir el directorio en el que sse trabaja y luego set para definirlo
 setwd(getwd())
+print(setwd(getwd()))
 ```
 
 ### [0.5 PUNTOS] 1.2. Cargue la data "mRNA_expr.csv"
 ```{r data}
-df <- "cargue la data"
-
+#Cargue la data "mRNA_expr.csv", ubicado en la carpeta data
+df <-read.csv(file = 'data/mRNA_expr.csv')
+head(df,5)
 ```
 
 ### [1 PUNTO] 1.3 Cree una función de nombre ```long_df``` para transformar la data ```df``` de la forma wide a long.
