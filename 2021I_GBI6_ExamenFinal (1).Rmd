@@ -125,7 +125,19 @@ head(df_long,5)
 ### [0.5 PUNTOS] 1.5 A partir de la data ```df_long```, genere un **Descriptive table** (librería ```sjPlot```) y guárdelo en el subdirectorio "result"  con el nombre **mRNA_expr_summary.doc** (previamente debe seleccionar las celdas adecuadas con funciones de la librería ```dplyr``` en conjunto con el operador ```%>%```). 
 ```{r desc_table}
 # Escriba el código para crear el Descriptive table 
+#Librerias a utilizar: dplyr 1.0.8, sjplot 2.8.10
+library(dplyr)
+library(sjPlot)
+library(sjmisc)
 
+#Extracion de las celdas
+descriptive_table0 <- df_long %>% group_by(dataset,
+                                           gen)
+#Descripcion de la data
+descriptive_tablef <- descr(x=descriptive_table0, 
+                            out="browser",
+                            file="results/mRNA_expr_summary.doc")
+descriptive_tablef
 ```
 
 ### [0.5 PUNTOS] 1.6 Interprete los resultados de la tabla resultante de la sección 1.5. 
