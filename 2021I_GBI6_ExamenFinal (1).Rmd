@@ -220,7 +220,36 @@ ggsave("results/boxplot3.png",
 
 ```{r reg_gen_exp}
 # Escriba aquí su función reg_gen_expression
-
+#Se  crea la funcion para la expresion del gen
+reg_gen_expression <- function(cancertype_boxplots_value){
+  #Se inicializan 2 variables con los valores del gen previo
+  gen_1 = cancertype_boxplots_value[1]
+  gen_2 = cancertype_boxplots_value[2]
+  
+  #Se elijen los datos de cada gen para luego evaluar su probabilidad
+  filtro1 <- df_long %>%
+              filter (gen == gen_1) #Posible gen 1
+  filtro2 <- df_long %>% 
+              filter (gen == gen_2) #Posible gen 2
+  
+  #Se añaden las multiples datas en una sola variable para tomar solo sus valores
+  #numericos y ponder analziar la regresion
+  nueva_data_con_genes <- cbind(filtro1,
+                                filtro2)
+  
+  #Se grafica usando tibble, que me ayduara a modificar la dataframe
+  #Este proviene de install.packages ( "tidyverse" ), previamente instalado 1.3.1
+  reg_genplots_geom_point <- tibble("dataset" = nueva_data_con_genes[,1],
+                                    "gen1" = nueva_data_con_genes[,3],
+                                    "gen2" = nueva_data_con_genes[,6]) %>%
+                               ggplot(aes(x = gen1, 
+                                         y = gen2, 
+                                         color = dataset)) + 
+                              geom_point(size = 2) + 
+                              geom_smooth(method = lm, 
+                                          formula = y~x, 
+                                          se = FALSE)
+}
 
 ```
 
