@@ -257,7 +257,19 @@ reg_gen_expression <- function(cancertype_boxplots_value){
 ### [0.5 PUNTOS] 2.5. Utilizando la función ```lapply()``` genera la lista ```reg_genplots``` con las gráficas para cada par de genes posibles. Recuerde que tiene 7 tipos de genes, se debe tener todas las combinaciones posibles por pares de genes (combinatoria sin repetición).
 ```{r list_regplots}
 # Escriba el código para generar la lista. 
+#Nuevamente se hacen elementos unicos, esta ocacion para los genes, por lo tanto,
+#Se usa un codigo similar al anteriormente usado, pero esta vez ayudara a ver las combinaciones
+gen_unico <- unique(df_long$gen)
 
+#En base a los genes se realizaran las combinaciones sin repeticion
+lista_genes_unicos <- combn(gen_unico,  #Gen a combianar
+                            m=2,        #Combinaciones entre genes
+                            simplify = FALSE)
+
+#Se genera la lsita con las graficas y las combinaciones posibles entre genes
+reg_genplots <- lapply(lista_genes_unicos,
+                       reg_gen_expression)
+reg_genplots
 ```
 
 
