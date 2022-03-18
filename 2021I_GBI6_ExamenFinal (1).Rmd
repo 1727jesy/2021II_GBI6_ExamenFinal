@@ -276,7 +276,13 @@ reg_genplots
 ### [0.5 PUNTOS] 2.6. Guarde en el subdirectorio ```result``` el onceavo plot de la lista ```reg_genplots``` con el nombre ```regresion11.pdf```. La definición de a figura debe ser de 300dpi. 
 ```{r reg11}
 # Escriba el código para guardar el onceavo plot. 
-
+#Se elije el onceavo grafico
+reg_genplots_value <-reg_genplots[[11]]
+reg_genplots_value
+#Se lo alamcena y guarda
+ggsave("results/regresion11.pdf",
+       dpi = 300,
+       limitsize = TRUE,)
 ```
 
 
