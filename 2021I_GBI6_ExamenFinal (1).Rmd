@@ -145,6 +145,17 @@ descriptive_tablef
 
 ```{tex}
 # Escriba aquí su interpretación 
+# Intrepretación 
+
+#En base a la tabla de estadistica descriptivas, se deduce que el cancer con mayor incidencia 
+#(590 observaciones) datos es el BRCA. Asimismo, este se presenta con mayor cantidad en el 
+#gen ESR1, este posee un promedio de 2.3. En contraste, el segundo cancer mas comun es el
+#de OV con una incidencia de 561 observaciones y el gen con mayor presencia es FN1 con media 
+#de 1.33. De igual forma, los siguen con numero de observaciones el tipo de cancer LUSC con 
+#154 observaciones, KIPAN con 88 observaciones y UCEC con 54 observaciones. De igual manera,
+#estos tuvieron mayor epresion en los genes: MUC1 con promedio de 0.56, PTEM con media de 0.72 
+#y ESR1 con un promedio de 2.17, respectivamente. Por ultimo, el cancer KIRP fue el que tenia 
+#menos presencia (16 observaciones), con un alto nivel de expresión del gen PTEN.
 
 ```
 
