@@ -290,7 +290,25 @@ ggsave("results/regresion11.pdf",
 
 ```{tex}
 # Esciba aquí su intepretación
+#Intepretación
 
+1. Boxplot
+
+#La imagen boxplot3.png, posee una distribucion de puntos asimetricos, gran cantidad 
+#de valores atipicos. Por lo tanto, se infiere que los datos no poseen una distribucion
+#normal, provienen de algun proceso estocastio. Igualmente, con mayor cantidad de 
+#punto negativos fue el GATA3, mayor cantidad de puntos entre el quintil 1 y 2. Por otra
+#parte, el gen que se expreso con mayor cantidad de puntos positivos fue el ESR1, sin 
+#embargo fue el mas se extedio a lo largo del eje "nivel de expresion", correlacionandose
+#con analsis dexcriptivo previo.
+
+2. Regresión lineal
+
+#La grafiica de regresion11.dpf, posee una densa nube de puntos, donde el nivel de expresion de
+#los genes 1 y 2 se concentraron aleatoriamente en la mayoria de canceres, 
+#pero con mayor frecuencia en los canceres BRCA y OV; lo caul esta extrechamente 
+#relacionado al analsis dexcriptivo previo. Por ultimo, la grafica indica que los niveles
+#de expresion del gen PTEN (gen1) aumenta, comparando con el gen GAPDH.
 ```
 
 ## 3. CONTROL DE LA VERSIÓN [1 PUNTO]. Se verficará en ell repositorio de GitHub. 
