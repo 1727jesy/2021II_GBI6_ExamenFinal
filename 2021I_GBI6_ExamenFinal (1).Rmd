@@ -94,29 +94,32 @@ head(df,5)
 ```{r funcion_long}
 # Escriba aquí la función long_df
 #Instalar antes el paquete
-#install.packages(reshape2)
-#La libreria reshape2 para cargar melt
-library(reshape2)
+#install.packages("tidyr")
+#La libreria tidyr para cargar melt
+library(tidyr)
 
 #Funcion de solucion
 long_df <- function(df){
-  #Se cambia el formato con ayuda de melt
-  data_long <- melt(df, 
-                    id.vars=c("bcr_patient_barcode", "dataset"), 
-                    measure.vars=c("GATA3", "PTEN", "XBP1", "ESR1", "MUC1", "FN1", "GAPDH" ),
-                    variable.name="gen",
-                    value.name="expresion_level")
-  return(data_long)
+  #Se cambia el formato con ayuda de gather
+  data_long <- gather(df, gen, expresion_level, 3:9, factor_key=TRUE)
+  data_long
 }
 
 ```
 
 
-### [1 PUNTO] Genere la data ```df_long``` utilizandola función ```long_df```. 
+### [1 PUNTO] 1.4 Genere la data ```df_long``` utilizandola función ```long_df```. 
 La tabla resultante tendrá tres columnas: ```dataset, gen, expresion_level```.  
 ```{r df_long}
 # Genere la data df_long 
+#La data anterior posee 4 columnas: bcr_patient_barcode, dataset, gen y expresion_level
+#Ahora se elijen solo los ultimos 3 elementos que son los de interes
 
+data_long_nueva<-long_df(df)[ , 2:4]
+
+#Se alamcenan los datos en un dataframe nuevo
+df_long <-data.frame(data_long_nueva)
+head(df_long,5)
 ```
 
 ### [0.5 PUNTOS] 1.5 A partir de la data ```df_long```, genere un **Descriptive table** (librería ```sjPlot```) y guárdelo en el subdirectorio "result"  con el nombre **mRNA_expr_summary.doc** (previamente debe seleccionar las celdas adecuadas con funciones de la librería ```dplyr``` en conjunto con el operador ```%>%```). 
